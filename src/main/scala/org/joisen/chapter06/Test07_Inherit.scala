@@ -8,6 +8,19 @@ object Test07_Inherit {
   def main(args: Array[String]): Unit = {
     val stu1 = new Student7("joisen", 23)
     val stu2 = new Student7("bob", 20, "bo123")
+    val teacher = new Teacher
+    stu1.printInfo()
+    stu2.printInfo()
+    teacher.printInfo()
+
+    def personInfo(person: Person): Unit = {
+      person.printInfo()
+    }
+    println("===================")
+    val person = new Person()
+    personInfo(stu1)
+    personInfo(teacher)
+    personInfo(person)
 
   }
 }
@@ -39,5 +52,11 @@ class Student7(name: String, age: Int) extends Person(name,age){// 父类不加�
 
   override def printInfo(): Unit = {
     println(s"Student: $name $age $stuNo")
+  }
+}
+
+class Teacher extends Person {
+  override def printInfo(): Unit = {
+    println(s"Teacher: ")
   }
 }
